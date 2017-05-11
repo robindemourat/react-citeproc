@@ -11,7 +11,7 @@ class Bibliography extends Component {
     this.state = {
       bibliography: '',
       sys: {
-        retrieveLocale: (g) => {
+        retrieveLocale: () => {
           return this.props.locale;
         },
         retrieveItem: (id) => {

@@ -49,7 +49,7 @@ var Bibliography = function (_Component) {
     _this.state = {
       bibliography: '',
       sys: {
-        retrieveLocale: function retrieveLocale(g) {
+        retrieveLocale: function retrieveLocale() {
           return _this.props.locale;
         },
         retrieveItem: function retrieveItem(id) {
