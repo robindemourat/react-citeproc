@@ -22,7 +22,7 @@ Bibliography.propTypes = {
    */
   style: PropTypes.string,
   /**
-   * Serialized csl data to use for localizing the terms
+   * Serialized xml data to use for localizing the terms
    */
   locale: PropTypes.string,
   /**
@@ -37,7 +37,7 @@ Bibliography.propTypes = {
 
 ```js
 const style = require('raw!./my-csl-style.csl');
-const locale = require('raw!./my-csl-locale.csl');
+const locale = require('raw!./my-xml-locale.xml');
 // App.js
 const App = ({
     items
@@ -71,7 +71,7 @@ ReferencesManager.propTypes = {
    */
   style: PropTypes.string,
   /**
-   * Serialized csl data to use for localizing the terms
+   * Serialized xml data to use for localizing the terms
    */
   locale: PropTypes.string,
   /**
@@ -94,7 +94,7 @@ ReferencesManager.propTypes = {
 ```js
 // App.js
 const style = require('raw!./my-csl-style.csl');
-const locale = require('raw!./my-csl-locale.csl');
+const locale = require('raw!./my-xml-locale.xml');
 const App = ({
     items,
     citations
