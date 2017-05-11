@@ -1,5 +1,5 @@
-import bibliographyManager from './components/BibliographyManager';
+import bibliography from './components/Bibliography';
 import referencesManager from './components/ReferencesManager';
 
-export const BibliographyManager = bibliographyManager;
+export const Bibliography = bibliography;
 export const ReferencesManager = referencesManager;

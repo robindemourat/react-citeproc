@@ -5,7 +5,7 @@ This project is aiming at providing react components acting as wrappers for bibl
 
 Cite-proc doc : https://github.com/Juris-M/citeproc-js/blob/22e86b46576bde2c2b78896bbe00644017d02d39/manual/citeproc-doc.rst
 
-# `BibliographyManager` component
+# `Bibliography` component
 
 This is a ready-to-use component for producing bibliography content as a react component.
 
@@ -18,7 +18,7 @@ const locale = require('raw!./my-csl-locale.csl');
 const App = ({
     items
 }) => (
-    <BibliographyManager
+    <Bibliography
       style={style}
       locale={locale}
       items={items}

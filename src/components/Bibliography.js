@@ -5,7 +5,7 @@ const CSL = require('citeproc');
 const HtmlToReactParser = require('html-to-react').Parser;
 const htmlToReactParser = new HtmlToReactParser();
 
-class BibliographyManager extends Component {
+class Bibliography extends Component {
 
   constructor(props) {
     super(props);
@@ -98,7 +98,7 @@ class BibliographyManager extends Component {
   }
 }
 
-BibliographyManager.propTypes = {
+Bibliography.propTypes = {
   /**
    * The class to use for identifying the component
    */
@@ -117,4 +117,4 @@ BibliographyManager.propTypes = {
   items: PropTypes.object,
 };
 
-export default BibliographyManager;
+export default Bibliography;

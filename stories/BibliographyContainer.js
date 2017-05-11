@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {BibliographyManager} from '../src/';
+import {Bibliography} from '../src/';
 
 import {v4 as genId} from 'uuid';
 
@@ -103,7 +103,7 @@ class BibliographyContainer extends Component {
           </div>
         </div>
 
-        <BibliographyManager
+        <Bibliography
           style={style}
           locale={locale}
           items={items}
