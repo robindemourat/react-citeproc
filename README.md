@@ -9,7 +9,31 @@ Cite-proc doc : https://github.com/Juris-M/citeproc-js/blob/22e86b46576bde2c2b78
 
 This is a ready-to-use component for producing bibliography content as a react component.
 
-Example :
+## API
+
+```js
+Bibliography.propTypes = {
+  /**
+   * The class to use for identifying the component
+   */
+  componentClass: PropTypes.string,
+  /**
+   * Serialized csl data to use for styling the bibliography
+   */
+  style: PropTypes.string,
+  /**
+   * Serialized csl data to use for localizing the terms
+   */
+  locale: PropTypes.string,
+  /**
+   * csl-json bibliographic items to represent - keys stand for items ids, values are js objects
+   */
+  items: PropTypes.object,
+};
+```
+
+## Example
+
 
 ```js
 const style = require('raw!./my-csl-style.csl');
@@ -32,9 +56,40 @@ const App = ({
 
 This is a wrapping component exposing bibliography and citations data through its context.
 
-When using this wrapper, `context.bibliography` is an array of react components to use for displaying the bibliography, and `context.citation` is an object containing citations with relevant data.
+When using this wrapper, `context.bibliography` is an array of react components to use for displaying the bibliography, and `context.citations` is an object containing citations with relevant data.
 
-Example :
+## API
+
+```
+ReferencesManager.propTypes = {
+  /**
+   * The class to use for identifying the component
+   */
+  componentClass: PropTypes.string,
+  /**
+   * Serialized csl data to use for styling the bibliography
+   */
+  style: PropTypes.string,
+  /**
+   * Serialized csl data to use for localizing the terms
+   */
+  locale: PropTypes.string,
+  /**
+   * csl-json bibliographic items to represent - keys stand for items ids, values are js objects
+   */
+  items: PropTypes.object,
+  /**
+   * array of citation arrays to use for building citations data
+   * Each citation array represents the citation content and context as follows :
+   * citation[0] : object containing the citations (with properties citationID (string), citationItems (array), and properties (object))
+   * citation[1] : array of citations preceding the given citation ([0]: citationId, [1]: citation index)
+   * citation[2] : array of citations following the given citation ([0]: citationId, [1]: citation index)
+   */
+  citations: PropTypes.array,
+};
+```
+
+## Example
 
 ```js
 // App.js
