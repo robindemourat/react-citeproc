@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 const CSL = require('citeproc');
 const HtmlToReactParser = require('html-to-react').Parser;
 const htmlToReactParser = new HtmlToReactParser();
 
-class Bibliography extends Component {
+class BibliographyManager extends Component {
 
   constructor(props) {
     super(props);
@@ -20,12 +21,23 @@ class Bibliography extends Component {
       }
     };
 
+
     this.makeReactBibliography = (processor, items) => {
       processor.updateItems(Object.keys(items));
       const bibResults = processor.makeBibliography();
       const biblioStr = bibResults[1].join('\n');
       return htmlToReactParser.parse(biblioStr);
     };
+  }
+
+  componentDidMount() {
+    if (this.props.locale && this.props.style) {
+      const processor = new CSL.Engine(this.state.sys, this.props.style);
+      this.setState({
+        processor,
+        bibliography: this.props.items && this.makeReactBibliography(processor, this.props.items)
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -80,10 +92,29 @@ class Bibliography extends Component {
     if (bibliography) {
       return (<section className={componentClass}>{bibliography}</section>);
     }
- else {
+    else {
       return (<section className={componentClass + ' loading'}>{this.props.loadingContent || 'loading'}</section>);
     }
   }
 }
 
-export default Bibliography;
+BibliographyManager.propTypes = {
+  /**
+   * The class to use for identifying the component
+   */
+  componentClass: PropTypes.string,
+  /**
+   * Serialized csl data to use for styling the bibliography
+   */
+  style: PropTypes.string,
+  /**
+   * Serialized csl data to use for localizing the terms
+   */
+  locale: PropTypes.string,
+  /**
+   * csl-json bibliographic items to represent - keys stand for items ids, values are js objects
+   */
+  items: PropTypes.object,
+};
+
+export default BibliographyManager;

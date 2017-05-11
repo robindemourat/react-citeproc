@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-import {BibliographyManager} from '../src/';
+import {ReferencesManager} from '../src/';
+
+import Bib from './BibliographyByContext';
+import Citation from './CitationByContext';
 
 import {v4 as genId} from 'uuid';
 
@@ -25,14 +29,18 @@ const styles = {
 };
 
 import demoItems from './citations/demo-citeproc-js';
+import demoCitations from './citations/demo-citations';
 
-class BibliographyContainer extends Component {
+class ReferencesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       style: chicago,
       locale: french,
-      items: demoItems
+      items: demoItems,
+      lang: 'french',
+
+      citations: demoCitations
     }
 
     this.addItems = () => {
@@ -55,7 +63,8 @@ class BibliographyContainer extends Component {
       const localeName = e.target.value;
       const locale = locales[localeName];
       this.setState({
-        locale
+        locale,
+        lang: localeName
       })
     };
     this.onStyleChange = (e) => {
@@ -67,11 +76,18 @@ class BibliographyContainer extends Component {
     };
   }
 
+  getChildContext () {
+    return {
+      lang: this.state.lang
+    }
+  }
+
   render() {
     const {
       style,
       locale,
-      items
+      items,
+      citations
     } = this.state;
     return (
       <section>
@@ -103,14 +119,32 @@ class BibliographyContainer extends Component {
           </div>
         </div>
 
-        <BibliographyManager
+        <ReferencesManager
           style={style}
           locale={locale}
           items={items}
-        />
+          citations={citations}
+        >
+          <div>
+            <h1>Text with inline citations</h1>
+            Lorem ipsum dolor sit amet <Citation id="CITATION-1" />, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit<Citation id="CITATION-2" /> in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur<Citation id="CITATION-3" />. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum<Citation id="CITATION-4" />.
+          </div>
+          <div>
+            <Bib />
+          </div>
+        </ReferencesManager>
       </section>
     );
   } 
 }
 
-export default BibliographyContainer;
+ReferencesContainer.childContextTypes = {
+  lang: PropTypes.string
+}
+
+export default ReferencesContainer;

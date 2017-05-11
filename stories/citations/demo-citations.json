@@ -1,0 +1,94 @@
+[
+    [
+        {
+            "citationID": "CITATION-1", 
+            "citationItems": [
+                {
+                    "id": "Item-1", 
+                    "locator": "12"
+                }
+            ], 
+            "properties": {
+                "noteIndex": 1
+            }
+        }, 
+        [],
+        []
+    ], 
+    [
+        {
+            "citationID": "CITATION-2", 
+            "citationItems": [
+                {
+                    "id": "Item-3", 
+                    "locator": "34"
+                }
+            ], 
+            "properties": {
+                "noteIndex": 2
+            }
+        }, 
+        [
+            [
+                "CITATION-1", 
+                1
+            ]
+        ], 
+        []
+    ], 
+    [
+        {
+            "citationID": "CITATION-3", 
+            "citationItems": [
+                {
+                    "id": "Item-4", 
+                    "locator": "45"
+                }
+            ], 
+            "properties": {
+                "noteIndex": 3
+            }
+        }, 
+        [
+            [
+                "CITATION-1", 
+                1
+            ], 
+            [
+                "CITATION-2", 
+                2
+            ]
+        ], 
+        []
+    ], 
+    [
+        {
+            "citationID": "CITATION-4", 
+            "citationItems": [
+                {
+                    "id": "Item-3", 
+                    "locator": "34"
+                }
+            ], 
+            "properties": {
+                "noteIndex": 2
+            }
+        }, 
+        [
+            [
+                "CITATION-1", 
+                1
+            ]
+        ], 
+        [
+            [
+                "CITATION-2", 
+                3
+            ], 
+            [
+                "CITATION-3", 
+                4
+            ]
+        ]
+    ]
+]
