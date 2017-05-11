@@ -56,7 +56,7 @@ const App = ({
 tempor incididunt ut labore et dolore magna aliqua.
           </div>
           <div>
-            <Bib />
+            <Bib title="Bibliographie" />
           </div>
     </ReferencesManager>
 );
