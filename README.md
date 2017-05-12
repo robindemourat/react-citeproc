@@ -38,7 +38,38 @@ Bibliography.propTypes = {
 ```js
 const style = require('raw!./my-csl-style.csl');
 const locale = require('raw!./my-xml-locale.xml');
-// App.js
+
+/**
+ * example of item data
+
+{
+  "Item-1": {
+    "id": "Item-1",
+    "type": "book",
+    "title": "Digital Typography",
+    "publisher": "Center for the Study of Language and Information",
+    "number-of-pages": "685",
+    "source": "Amazon.com",
+    "ISBN": "1575860104",
+    "author": [
+      {
+        "family": "Knuth",
+        "given": "Donald E."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1998",
+          6,
+          1
+        ]
+      ]
+    }
+  }
+}
+*/
+
 const App = ({
     items
 }) => (
@@ -60,7 +91,7 @@ When using this wrapper, `context.bibliography` is an array of react components 
 
 ## API
 
-```
+```js
 ReferencesManager.propTypes = {
   /**
    * The class to use for identifying the component
@@ -92,9 +123,32 @@ ReferencesManager.propTypes = {
 ## Example
 
 ```js
-// App.js
 const style = require('raw!./my-csl-style.csl');
 const locale = require('raw!./my-xml-locale.xml');
+
+/**
+ * example of citation data
+
+ [
+    [
+        {
+            "citationID": "CITATION-1", 
+            "citationItems": [
+                {
+                    "id": "Item-1", 
+                    "locator": "12"
+                }
+            ], 
+            "properties": {
+                "noteIndex": 1
+            }
+        }, 
+        [],
+        []
+    ]
+]
+*/
+
 const App = ({
     items,
     citations
@@ -116,8 +170,6 @@ tempor incididunt ut labore et dolore magna aliqua.
     </ReferencesManager>
 );
 
-// Citation.js
-
 const Citation = ({
   id
 }, {
@@ -137,29 +189,20 @@ Citation.contextTypes = {
   citations: PropTypes.object
 }
 
-export default Citation;
-
-// Bib.js
-
 const Bib = ({
     title
 }, {
-  bibliography,
-  lang
+  bibliography
 }) => {
-  const title = setBibTitle(lang);
   return (
     <section>
       <h2>{title}</h2>
       <div>{bibliography}</div>
     </section>
   );
-}
+};
 
 Bib.contextTypes = {
   bibliography: PropTypes.object,
-  lang: PropTypes.string
-}
-
-export default Bib;
+};
 ```
