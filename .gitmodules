@@ -1,0 +1,3 @@
+[submodule "locales"]
+  path = stories/locales
+  url = git://github.com/citation-style-language/locales.git
