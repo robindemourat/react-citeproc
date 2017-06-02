@@ -17,10 +17,14 @@ storiesOf('React bibliography', module)
   ))
 
 import ReferencesContainer from './ReferencesContainer';
+import EmptyReferencesContainer from './EmptyReferencesContainer';
 
 storiesOf('React references', module)
   .add('pass bibliographic elements through context', () => (
     <ReferencesContainer />
+  ))
+  .add('pass bibliographic elements through context (empty)', () => (
+    <EmptyReferencesContainer />
   ))
 
 /**

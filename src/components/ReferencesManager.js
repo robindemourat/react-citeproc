@@ -65,8 +65,8 @@ class ReferencesManager extends Component {
       const processor = new CSL.Engine(this.state.sys, this.props.style);
       this.setState({
         processor,
-        citations: this.props.citations && this.makeReactCitations(processor, this.props.citations),
-        bibliography: this.props.items && this.makeReactBibliography(processor, this.props.items),
+        citations: this.props.citations && this.props.citations.length ? this.makeReactCitations(processor, this.props.citations) : undefined,
+        bibliography: this.props.items && this.props.items.length ? this.makeReactBibliography(processor, this.props.items) : undefined,
       });
     }
   }
@@ -81,6 +81,9 @@ class ReferencesManager extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (!this.props.items || !this.props.items.length) {
+      return;
+    }
     if (this.state.processor &&
       (this.props.items !== prevProps.items) ||
       (this.props.citations !== prevProps.citations) ||
@@ -118,6 +121,7 @@ class ReferencesManager extends Component {
       });
     }
   }
+
   render () {
     const {
       componentClass,
