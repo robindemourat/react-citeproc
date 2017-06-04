@@ -81,7 +81,7 @@ class ReferencesManager extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (!this.props.items || !this.props.items.length) {
+    if (!this.props.items || !Object.keys(this.props.items).length) {
       return;
     }
     if (this.state.processor &&

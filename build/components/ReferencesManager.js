@@ -134,7 +134,7 @@ var ReferencesManager = function (_Component) {
     value: function componentDidUpdate(prevProps) {
       var _this2 = this;
 
-      if (!this.props.items || !this.props.items.length) {
+      if (!this.props.items || !(0, _keys2.default)(this.props.items).length) {
         return;
       }
       if (this.state.processor && this.props.items !== prevProps.items || this.props.citations !== prevProps.citations || !this.state.bibliography) {
