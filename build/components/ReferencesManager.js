@@ -55,7 +55,7 @@ var ReferencesManager = function (_Component) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (ReferencesManager.__proto__ || (0, _getPrototypeOf2.default)(ReferencesManager)).call(this, props));
 
     _this.state = {
-      bibliography: '',
+      bibliography: undefined,
       sys: {
         retrieveLocale: function retrieveLocale() {
           return _this.props.locale;

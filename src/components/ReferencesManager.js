@@ -10,7 +10,7 @@ class ReferencesManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bibliography: '',
+      bibliography: undefined,
       sys: {
         retrieveLocale: () => {
           return this.props.locale;
