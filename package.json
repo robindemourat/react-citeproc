@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/robindemourat/react-csl#readme",
   "dependencies": {
-    "citeproc": "^2.0.2",
+    "citeproc": "^2.0.6",
     "html-to-react": "^1.2.8",
     "lodash": "^4.17.4",
     "react": "^15.3.2",
