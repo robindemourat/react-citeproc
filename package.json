@@ -20,14 +20,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robindemourat/react-csl.git"
+    "url": "git+https://github.com/robindemourat/react-citeproc.git"
   },
   "author": "Robin de Mourat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/robindemourat/react-csl/issues"
+    "url": "https://github.com/robindemourat/react-citeproc/issues"
   },
-  "homepage": "https://github.com/robindemourat/react-csl#readme",
+  "homepage": "https://github.com/robindemourat/react-citeproc#readme",
   "dependencies": {
     "citeproc": "^2.0.2",
     "html-to-react": "^1.2.8",
