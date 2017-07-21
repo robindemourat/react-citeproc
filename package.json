@@ -2,9 +2,9 @@
   "name": "react-citeproc",
   "version": "0.0.1",
   "description": "react wrapping components for csl-based citations",
-  "main": "build/bundle.js",
+  "main": "build/index.js",
   "scripts": {
-    "build": "kotatsu build client ./src/index.js -o build --config ./webpack.config.js --babel",
+    "build": "rm -rf build && gulp build",
     "lint": "eslint --fix src",
     "comb": "csscomb src",
     "test": "mocha --compilers js:babel-core/register -R spec --recursive $(find src -name '*.spec.js')",
@@ -20,14 +20,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robindemourat/react-citeproc.git"
+    "url": "git+https://github.com/robindemourat/react-csl.git"
   },
   "author": "Robin de Mourat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/robindemourat/react-citeproc/issues"
+    "url": "https://github.com/robindemourat/react-csl/issues"
   },
-  "homepage": "https://github.com/robindemourat/react-citeproc#readme",
+  "homepage": "https://github.com/robindemourat/react-csl#readme",
   "dependencies": {
     "citeproc": "^2.0.6",
     "html-to-react": "^1.2.8",
@@ -57,6 +57,9 @@
     "eslint": "^3.7.1",
     "eslint-plugin-react": "^6.3.0",
     "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-strip-comments": "^2.4.5",
     "kotatsu": "^0.14.0",
     "mocha": "^3.1.0",
     "node-sass": "^3.8.0",
@@ -64,8 +67,7 @@
     "raw-loader": "^0.5.1",
     "react-dom": "^15.5.4",
     "sass-loader": "^4.0.0",
-    "style-loader": "^0.13.1",
-    "uglify-es-webpack-plugin": "0.0.3"
+    "style-loader": "^0.13.1"
   },
   "babel": {
     "plugins": [
