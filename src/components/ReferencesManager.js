@@ -128,7 +128,7 @@ class ReferencesManager extends Component {
       children
     } = this.props;
 
-    return (<section className={componentClass}>{children}</section>);
+    return (<div className={componentClass}>{children}</div>);
 
   }
 }

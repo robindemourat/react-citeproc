@@ -178,7 +178,7 @@ var ReferencesManager = function (_Component) {
 
 
       return _react2.default.createElement(
-        'section',
+        'div',
         { className: componentClass },
         children
       );

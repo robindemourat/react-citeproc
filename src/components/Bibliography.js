@@ -90,10 +90,10 @@ class Bibliography extends Component {
     } = this.state;
 
     if (bibliography) {
-      return (<section className={componentClass}>{bibliography}</section>);
+      return (<div className={componentClass}>{bibliography}</div>);
     }
     else {
-      return (<section className={componentClass + ' loading'}>{this.props.loadingContent || 'loading'}</section>);
+      return (<div className={componentClass + ' loading'}>{this.props.loadingContent || 'loading'}</div>);
     }
   }
 }

@@ -136,13 +136,13 @@ var Bibliography = function (_Component) {
 
       if (bibliography) {
         return _react2.default.createElement(
-          'section',
+          'div',
           { className: componentClass },
           bibliography
         );
       } else {
         return _react2.default.createElement(
-          'section',
+          'div',
           { className: componentClass + ' loading' },
           this.props.loadingContent || 'loading'
         );
