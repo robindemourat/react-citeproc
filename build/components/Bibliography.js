@@ -50,23 +50,27 @@ var Bibliography = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Bibliography.__proto__ || (0, _getPrototypeOf2.default)(Bibliography)).call(this, props));
 
-    _this.state = {
-      bibliography: '',
-      sys: {
-        retrieveLocale: function retrieveLocale() {
-          return _this.props.locale;
-        },
-        retrieveItem: function retrieveItem(id) {
-          return _this.props.items[id];
-        }
-      }
-    };
-
     _this.makeReactBibliography = function (processor, items) {
       processor.updateItems((0, _keys2.default)(items));
       var bibResults = processor.makeBibliography();
       var biblioStr = bibResults[1].join('\n');
       return htmlToReactParser.parse(biblioStr);
+    };
+
+    var sys = {
+      retrieveLocale: function retrieveLocale() {
+        return _this.props.locale;
+      },
+      retrieveItem: function retrieveItem(id) {
+        return _this.props.items[id];
+      }
+    };
+
+    var processor = new CSL.Engine(sys, props.style);
+
+    _this.state = {
+      sys: sys,
+      bibliography: props.items && props.style && props.locale ? _this.makeReactBibliography(processor, props.items) : ''
     };
     return _this;
   }

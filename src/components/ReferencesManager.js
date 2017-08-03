@@ -9,15 +9,12 @@ class ReferencesManager extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      bibliography: undefined,
-      sys: {
-        retrieveLocale: () => {
-          return this.props.locale;
-        },
-        retrieveItem: (id) => {
-          return this.props.items[id];
-        }
+    const sys = {
+      retrieveLocale: () => {
+        return this.props.locale;
+      },
+      retrieveItem: (id) => {
+        return this.props.items[id];
       }
     };
 
@@ -50,6 +47,14 @@ class ReferencesManager extends Component {
         });
         return citations;
       }, {});
+    };
+
+    const processor = new CSL.Engine(sys, props.style);
+
+    this.state = {
+      sys,
+      bibliography: props.items && props.style && props.locale ? this.makeReactBibliography(processor, props.items) : undefined,
+      citations: props.citations && props.style && props.locale ? this.makeReactCitations(processor, props.citations) : undefined,
     };
   }
 

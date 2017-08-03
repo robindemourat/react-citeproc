@@ -9,17 +9,6 @@ class Bibliography extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      bibliography: '',
-      sys: {
-        retrieveLocale: () => {
-          return this.props.locale;
-        },
-        retrieveItem: (id) => {
-          return this.props.items[id];
-        }
-      }
-    };
 
 
     this.makeReactBibliography = (processor, items) => {
@@ -27,6 +16,22 @@ class Bibliography extends Component {
       const bibResults = processor.makeBibliography();
       const biblioStr = bibResults[1].join('\n');
       return htmlToReactParser.parse(biblioStr);
+    };
+
+    const sys = {
+      retrieveLocale: () => {
+        return this.props.locale;
+      },
+      retrieveItem: (id) => {
+        return this.props.items[id];
+      }
+    };
+
+    const processor = new CSL.Engine(sys, props.style);
+
+    this.state = {
+      sys,
+      bibliography: props.items && props.style && props.locale ? this.makeReactBibliography(processor, props.items) : '',
     };
   }
 

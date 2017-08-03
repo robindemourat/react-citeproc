@@ -54,15 +54,12 @@ var ReferencesManager = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (ReferencesManager.__proto__ || (0, _getPrototypeOf2.default)(ReferencesManager)).call(this, props));
 
-    _this.state = {
-      bibliography: undefined,
-      sys: {
-        retrieveLocale: function retrieveLocale() {
-          return _this.props.locale;
-        },
-        retrieveItem: function retrieveItem(id) {
-          return _this.props.items[id];
-        }
+    var sys = {
+      retrieveLocale: function retrieveLocale() {
+        return _this.props.locale;
+      },
+      retrieveItem: function retrieveItem(id) {
+        return _this.props.items[id];
       }
     };
 
@@ -95,6 +92,14 @@ var ReferencesManager = function (_Component) {
         });
         return citations;
       }, {});
+    };
+
+    var processor = new CSL.Engine(sys, props.style);
+
+    _this.state = {
+      sys: sys,
+      bibliography: props.items && props.style && props.locale ? _this.makeReactBibliography(processor, props.items) : undefined,
+      citations: props.citations && props.style && props.locale ? _this.makeReactCitations(processor, props.citations) : undefined
     };
     return _this;
   }
