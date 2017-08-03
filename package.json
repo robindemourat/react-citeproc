@@ -1,6 +1,6 @@
 {
   "name": "react-citeproc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "react wrapping components for csl-based citations",
   "main": "build/index.js",
   "scripts": {
