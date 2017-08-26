@@ -36,11 +36,15 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _citeproc = require('citeproc');
+
+var _citeproc2 = _interopRequireDefault(_citeproc);
+
+var _htmlToReact = require('html-to-react');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CSL = require('citeproc');
-var HtmlToReactParser = require('html-to-react').Parser;
-var htmlToReactParser = new HtmlToReactParser();
+var htmlToReactParser = new _htmlToReact.Parser();
 
 var Bibliography = function (_Component) {
   (0, _inherits3.default)(Bibliography, _Component);
@@ -66,7 +70,7 @@ var Bibliography = function (_Component) {
       }
     };
 
-    var processor = new CSL.Engine(sys, props.style);
+    var processor = new _citeproc2.default.Engine(sys, props.style);
 
     _this.state = {
       sys: sys,
@@ -79,7 +83,7 @@ var Bibliography = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (this.props.locale && this.props.style) {
-        var processor = new CSL.Engine(this.state.sys, this.props.style);
+        var processor = new _citeproc2.default.Engine(this.state.sys, this.props.style);
         this.setState({
           processor: processor,
           bibliography: this.props.items && this.makeReactBibliography(processor, this.props.items)
@@ -90,7 +94,7 @@ var Bibliography = function (_Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (!this.state.processor && this.props.locale && this.props.style) {
-        var processor = new CSL.Engine(this.state.sys, nextProps.style);
+        var processor = new _citeproc2.default.Engine(this.state.sys, nextProps.style);
         this.setState({
           processor: processor
         });
@@ -115,7 +119,7 @@ var Bibliography = function (_Component) {
             return _this2.props.items[id];
           }
         };
-        var processor = new CSL.Engine(sys, this.props.style);
+        var processor = new _citeproc2.default.Engine(sys, this.props.style);
         this.setState({
           processor: processor,
           bibliography: this.makeReactBibliography(processor, this.props.items),
@@ -123,7 +127,7 @@ var Bibliography = function (_Component) {
         });
       }
       if (this.props.style !== prevProps.style) {
-        var _processor = new CSL.Engine(this.state.sys, this.props.style);
+        var _processor = new _citeproc2.default.Engine(this.state.sys, this.props.style);
         this.setState({
           processor: _processor,
           bibliography: this.makeReactBibliography(_processor, this.props.items)

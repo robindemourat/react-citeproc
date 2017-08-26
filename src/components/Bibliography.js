@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const CSL = require('citeproc');
-const HtmlToReactParser = require('html-to-react').Parser;
+import CSL from 'citeproc';
+
+import {Parser as HtmlToReactParser} from 'html-to-react';
+
 const htmlToReactParser = new HtmlToReactParser();
 
 class Bibliography extends Component {
