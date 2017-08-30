@@ -99,7 +99,9 @@ var ReferencesManager = function (_Component) {
     _this.state = {
       sys: sys,
       bibliography: props.items && props.style && props.locale ? _this.makeReactBibliography(processor, props.items) : undefined,
-      citations: props.citations && props.style && props.locale ? _this.makeReactCitations(processor, props.citations) : undefined
+      citations: props.citations && props.style && props.locale ? _this.makeReactCitations(processor, props.citations) : undefined,
+      citationStyle: props.citations && props.style,
+      citationLocale: props.citations && props.locale
     };
     return _this;
   }
@@ -202,7 +204,9 @@ ReferencesManager.propTypes = {
 
 ReferencesManager.childContextTypes = {
   bibliography: _propTypes2.default.array,
-  citations: _propTypes2.default.object
+  citations: _propTypes2.default.object,
+  citationLocale: _propTypes2.default.string,
+  citationStyle: _propTypes2.default.string
 };
 
 exports.default = ReferencesManager;

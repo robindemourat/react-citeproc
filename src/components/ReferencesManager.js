@@ -55,6 +55,8 @@ class ReferencesManager extends Component {
       sys,
       bibliography: props.items && props.style && props.locale ? this.makeReactBibliography(processor, props.items) : undefined,
       citations: props.citations && props.style && props.locale ? this.makeReactCitations(processor, props.citations) : undefined,
+      citationStyle: props.citations && props.style,
+      citationLocale: props.citations && props.locale,
     };
   }
 
@@ -167,7 +169,9 @@ ReferencesManager.propTypes = {
 
 ReferencesManager.childContextTypes = {
   bibliography: PropTypes.array,
-  citations: PropTypes.object
+  citations: PropTypes.object,
+  citationLocale: PropTypes.string,
+  citationStyle: PropTypes.string,
 };
 
 export default ReferencesManager;
