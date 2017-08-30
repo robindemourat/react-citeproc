@@ -63,7 +63,9 @@ class ReferencesManager extends Component {
   getChildContext() {
     return {
       bibliography: this.state.bibliography,
-      citations: this.state.citations
+      citations: this.state.citations,
+      citationStyle: this.props.style,
+      citationLocale: this.props.locale,
     };
   }
 

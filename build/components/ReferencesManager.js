@@ -111,7 +111,9 @@ var ReferencesManager = function (_Component) {
     value: function getChildContext() {
       return {
         bibliography: this.state.bibliography,
-        citations: this.state.citations
+        citations: this.state.citations,
+        citationStyle: this.props.style,
+        citationLocale: this.props.locale
       };
     }
   }, {
