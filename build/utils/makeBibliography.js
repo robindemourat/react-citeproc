@@ -26,6 +26,13 @@ function makeBibliography(items, style, locale) {
     },
     retrieveItem: function retrieveItem(id) {
       return items[id];
+    },
+    variableWrapper: function variableWrapper(params, prePunct, str, postPunct) {
+      if (params.variableNames[0] === 'title' && params.itemData.URL && params.context === 'bibliography') {
+        return prePunct + '<a href="' + params.itemData.URL + '" target="blank">' + str + '</a>' + postPunct;
+      } else {
+        return prePunct + str + postPunct;
+      }
     }
   };
   var processor = new CSL.Engine(sys, style);

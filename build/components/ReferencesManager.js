@@ -60,6 +60,13 @@ var ReferencesManager = function (_Component) {
       },
       retrieveItem: function retrieveItem(id) {
         return _this.props.items[id];
+      },
+      variableWrapper: function variableWrapper(params, prePunct, str, postPunct) {
+        if (params.variableNames[0] === 'title' && params.itemData.URL && params.context === 'bibliography') {
+          return prePunct + '<a href="' + params.itemData.URL + '" target="blank">' + str + '</a>' + postPunct;
+        } else {
+          return prePunct + str + postPunct;
+        }
       }
     };
 
@@ -159,6 +166,13 @@ var ReferencesManager = function (_Component) {
           },
           retrieveItem: function retrieveItem(id) {
             return _this2.props.items[id];
+          },
+          variableWrapper: function variableWrapper(params, prePunct, str, postPunct) {
+            if (params.variableNames[0] === 'title' && params.itemData.URL && params.context === 'bibliography') {
+              return prePunct + '<a href="' + params.itemData.URL + '" target="blank">' + str + '</a>' + postPunct;
+            } else {
+              return prePunct + str + postPunct;
+            }
           }
         };
         var processor = new CSL.Engine(sys, this.props.style);
