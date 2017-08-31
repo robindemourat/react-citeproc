@@ -30,6 +30,8 @@ function makeBibliography(items, style, locale) {
     variableWrapper: function variableWrapper(params, prePunct, str, postPunct) {
       if (params.variableNames[0] === 'title' && params.itemData.URL && params.context === 'bibliography') {
         return prePunct + '<a href="' + params.itemData.URL + '" target="blank">' + str + '</a>' + postPunct;
+      } else if (params.variableNames[0] === 'URL') {
+        return prePunct + '<a href="' + str + '" target="blank">' + str + '</a>' + postPunct;
       } else {
         return prePunct + str + postPunct;
       }

@@ -17,17 +17,26 @@ class ReferencesManager extends Component {
         return this.props.items[id];
       },
       variableWrapper: (params, prePunct, str, postPunct) => {
-        if (params.variableNames[0] === 'title' 
+        if (params.variableNames[0] === 'title'
             && params.itemData.URL
-            && params.context === "bibliography") {
-          return prePunct 
+            && params.context === 'bibliography') {
+          return prePunct
              + '<a href="'
-               + params.itemData.URL 
-             + '" target="blank">' 
+               + params.itemData.URL
+             + '" target="blank">'
                + str
-             + '</a>' 
+             + '</a>'
                + postPunct;
-        } else {
+        }  else if (params.variableNames[0] === 'URL') {
+          return prePunct
+             + '<a href="'
+               + str
+             + '" target="blank">'
+               + str
+             + '</a>'
+               + postPunct;
+        }
+        else {
           return (prePunct + str + postPunct);
         }
       }
@@ -127,17 +136,26 @@ class ReferencesManager extends Component {
           return this.props.items[id];
         },
         variableWrapper: (params, prePunct, str, postPunct) => {
-          if (params.variableNames[0] === 'title' 
+          if (params.variableNames[0] === 'title'
               && params.itemData.URL
-              && params.context === "bibliography") {
-            return prePunct 
+              && params.context === 'bibliography') {
+            return prePunct
                + '<a href="'
-                 + params.itemData.URL 
-               + '" target="blank">' 
+                 + params.itemData.URL
+               + '" target="blank">'
                  + str
-               + '</a>' 
+               + '</a>'
                  + postPunct;
-          } else {
+          }  else if (params.variableNames[0] === 'URL') {
+            return prePunct
+               + '<a href="'
+                 + str
+               + '" target="blank">'
+                 + str
+               + '</a>'
+                 + postPunct;
+          }
+          else {
             return (prePunct + str + postPunct);
           }
         }

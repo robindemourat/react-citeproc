@@ -7,6 +7,7 @@ import {v4 as genId} from 'uuid';
 import chicago from 'raw!./styles/chicago-full-note-bibliography.csl';
 import apa from 'raw!./styles/apa.csl';
 import associationRegionaleDeLangueFrancaise from 'raw!./styles/association-regionale-de-langue-francaise.csl';
+import iso690 from 'raw!./styles/iso690-note-fr.csl';
 
 import french from 'raw!./locales/locales-fr-FR.xml';
 import english from 'raw!./locales/locales-en-US.xml';
@@ -21,7 +22,8 @@ const locales = {
 const styles = {
   chicago,
   apa,
-  associationRegionaleDeLangueFrancaise
+  associationRegionaleDeLangueFrancaise,
+  iso690
 };
 
 import demoItems from './citations/demo-citeproc-js';
