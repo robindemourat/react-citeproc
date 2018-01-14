@@ -27,7 +27,8 @@ class ReferencesManager extends Component {
                + str
              + '</a>'
                + postPunct;
-        }  else if (params.variableNames[0] === 'URL') {
+        }
+  else if (params.variableNames[0] === 'URL') {
           return prePunct
              + '<a href="'
                + str
@@ -146,7 +147,8 @@ class ReferencesManager extends Component {
                  + str
                + '</a>'
                  + postPunct;
-          }  else if (params.variableNames[0] === 'URL') {
+          }
+  else if (params.variableNames[0] === 'URL') {
             return prePunct
                + '<a href="'
                  + str
@@ -218,7 +220,7 @@ ReferencesManager.propTypes = {
 };
 
 ReferencesManager.childContextTypes = {
-  bibliography: PropTypes.array,
+  bibliography: PropTypes.object,
   citations: PropTypes.object,
   citationLocale: PropTypes.string,
   citationStyle: PropTypes.string,

@@ -223,7 +223,7 @@ ReferencesManager.propTypes = {
 };
 
 ReferencesManager.childContextTypes = {
-  bibliography: _propTypes2.default.array,
+  bibliography: _propTypes2.default.object,
   citations: _propTypes2.default.object,
   citationLocale: _propTypes2.default.string,
   citationStyle: _propTypes2.default.string

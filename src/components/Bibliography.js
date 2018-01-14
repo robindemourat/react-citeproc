@@ -38,7 +38,8 @@ class Bibliography extends Component {
                + str
              + '</a>'
                + postPunct;
-        }  else if (params.variableNames[0] === 'URL') {
+        }
+  else if (params.variableNames[0] === 'URL') {
           return prePunct
              + '<a href="'
                + str
@@ -106,7 +107,8 @@ class Bibliography extends Component {
                  + str
                + '</a>'
                  + postPunct;
-          }  else if (params.variableNames[0] === 'URL') {
+          }
+  else if (params.variableNames[0] === 'URL') {
             return prePunct
                + '<a href="'
                  + str

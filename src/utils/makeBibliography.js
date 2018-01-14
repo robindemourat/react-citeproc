@@ -22,7 +22,8 @@ export default function makeBibliography(items, style, locale, options = {}) {
              + str
            + '</a>'
              + postPunct;
-      } else if (params.variableNames[0] === 'URL') {
+      }
+ else if (params.variableNames[0] === 'URL') {
         return prePunct
            + '<a href="'
              + str
