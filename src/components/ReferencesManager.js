@@ -220,7 +220,7 @@ ReferencesManager.propTypes = {
 };
 
 ReferencesManager.childContextTypes = {
-  bibliography: PropTypes.object,
+  bibliography: PropTypes.array,
   citations: PropTypes.object,
   citationLocale: PropTypes.string,
   citationStyle: PropTypes.string,
