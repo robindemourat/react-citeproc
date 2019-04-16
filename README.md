@@ -38,7 +38,7 @@ Bibliography.propTypes = {
 ```js
 /**
  *  fetch csl and xml data as strings with your prefered method
- * /
+ */
 import raw from 'raw.macro'
  
 const style = raw('my-csl-style.csl');
@@ -130,7 +130,7 @@ ReferencesManager.propTypes = {
 ```js
 /**
  *  fetch csl and xml data as strings with your prefered method
- * /
+ */
 import raw from 'raw.macro'
  
 const style = raw('my-csl-style.csl');
