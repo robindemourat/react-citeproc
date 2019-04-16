@@ -36,8 +36,13 @@ Bibliography.propTypes = {
 
 
 ```js
-const style = require('raw!./my-csl-style.csl');
-const locale = require('raw!./my-xml-locale.xml');
+/**
+ *  fetch csl and xml data as strings with your prefered method
+ * /
+import raw from 'raw.macro'
+ 
+const style = raw('my-csl-style.csl');
+const locale = raw('my-xml-locale.xml');
 
 /**
  * example of item data
@@ -123,8 +128,44 @@ ReferencesManager.propTypes = {
 ## Example
 
 ```js
-const style = require('raw!./my-csl-style.csl');
-const locale = require('raw!./my-xml-locale.xml');
+/**
+ *  fetch csl and xml data as strings with your prefered method
+ * /
+import raw from 'raw.macro'
+ 
+const style = raw('my-csl-style.csl');
+const locale = raw('my-xml-locale.xml');
+
+/**
+ * example of item data
+
+{
+  "Item-1": {
+    "id": "Item-1",
+    "type": "book",
+    "title": "Digital Typography",
+    "publisher": "Center for the Study of Language and Information",
+    "number-of-pages": "685",
+    "source": "Amazon.com",
+    "ISBN": "1575860104",
+    "author": [
+      {
+        "family": "Knuth",
+        "given": "Donald E."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1998",
+          6,
+          1
+        ]
+      ]
+    }
+  }
+}
+*/
 
 /**
  * example of citation data
